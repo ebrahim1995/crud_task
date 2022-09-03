@@ -1,0 +1,17 @@
+version: "2"
+services:
+
+  node:
+    container_name: node
+    restart: always
+    build: .
+    ports:
+      - "8080:8080"
+    links:
+      - mongo
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - "27017:27017"
